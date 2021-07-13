@@ -1,3 +1,23 @@
+
+
+<?php
+include "../functions/baglan.php";
+
+$ayarsor=$db->prepare("SELECT * FROM ayar where ayar_id=:xid");
+
+$ayarsor->execute(array(
+
+  "xid"=>1
+));
+
+$ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
+
+
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -7,7 +27,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>DataTables | Gentelella</title>
+    <title>E-ticaret</title>
 
     <!-- Bootstrap -->
     <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
