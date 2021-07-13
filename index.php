@@ -1,4 +1,4 @@
-﻿<?php  include "partial/header.php" ; ?> 
+﻿<?php  include "header.php" ; ?> 
 	
 	<div class="container">
 		<ul class="small-menu"><!--small-nav -->
@@ -396,4 +396,4 @@
 		</div>
 	</div>
 	
-	<?php  include "partial/footer.php"; ?>
+	<?php  include "footer.php"; ?>

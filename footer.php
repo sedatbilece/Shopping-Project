@@ -1,3 +1,4 @@
+
 <div class="f-widget"><!--footer Widget-->
 		<div class="container">
 			<div class="row">
@@ -38,9 +39,9 @@
 						<div class="title-widget-cursive">Shopping</div>
 					</div>
 					<ul class="contact-widget">
-						<li class="fphone">+387 123 456, +387 123 456 <br> +387 123 456</li>
-						<li class="fmobile">+387-123-456-1<br>+387-123-456-2</li>
-						<li class="fmail lastone">your@email.com<br>customer.care@mail.com</li>
+						<li class="fphone"><?php   echo $ayarcek["ayar_tel"]; ?></li>
+						<li class="fmobile"><?php   echo $ayarcek["ayar_gsm"]; ?></li>
+						<li class="fmail lastone"><?php   echo $ayarcek["ayar_mail"]; ?> </li>
 					</ul>
 				</div><!--footer contact widget-->
 			</div>
