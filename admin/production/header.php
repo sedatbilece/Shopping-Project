@@ -86,8 +86,11 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                 <h3>General</h3>
                 <ul class="nav side-menu">
 
+                
+                <li><a href="#"><i class="fa fa-home"></i> AnaSayfa  </li>
+                <li><a href="hakkimizda.php"><i class="fa fa-info"></i> Hakkımızda  </li>
 
-                <li><a href="javascript:void(0)"><i class="fa fa-home"></i> AnaSayfa  </li>
+
 
                   <li><a><i class="fa fa-cogs"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

@@ -122,6 +122,46 @@ if(isset($_POST["apiayarkaydet"])){
 
 
 
+      #    HAKKIMIZDA UPDATE İSLEMLERİ
+
+    if(isset($_POST["hakkimizdakaydet"])){
+    
+    
+        $ayarkaydet= $db -> prepare("UPDATE hakkimizda SET 
+        
+        hakkimizda_baslik=:xbas,
+        hakkimizda_icerik=:xice,
+        hakkimizda_vizyon=:xviz,
+        hakkimizda_misyon=:xmis,
+        hakkimizda_video=:xvid
+         
+        WHERE hakkimizda_id=0
+        
+        ");
+        
+        $update= $ayarkaydet->execute(array(
+        
+        "xbas"=> $_POST["hakkimizda_baslik"],
+        "xice"=> $_POST["hakkimizda_icerik"],
+        "xviz"=> $_POST["hakkimizda_vizyon"],
+        "xmis"=> $_POST["hakkimizda_misyon"],
+        "xvid"=> $_POST["hakkimizda_video"]
+        
+        
+        ));
+        
+        if($update){
+            header("Location:../production/hakkimizda.php?durum=ok");
+        }
+        else{
+            header("Location:../production/hakkimizda.php?durum=no");
+        }
+        
+        
+        }
+    
+    
+
 
 
 ?>
