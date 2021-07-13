@@ -61,7 +61,7 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
         <div class="col-md-3 left_col">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Gentelella Alela!</span></a>
+              <a href="index.html" class="site_title"><i class="fa fa-paw"></i> <span>Sedat Bilece</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -92,6 +92,7 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                   <li><a><i class="fa fa-cogs"></i> Ayarlar <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="genel-ayar.php">Genel Ayarlar</a></li>
+                      <li><a href="iletisim-ayar.php">İletişim Ayarlar</a></li>
                       
                     </ul>
                   </li>
