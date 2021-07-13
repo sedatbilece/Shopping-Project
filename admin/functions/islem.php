@@ -85,6 +85,42 @@ else{
 
 
 
+# APİ UPDATE İSLEMLERİ
+
+if(isset($_POST["apiayarkaydet"])){
+
+
+    $ayarkaydet= $db -> prepare("UPDATE ayar SET 
+    
+    ayar_analystic=:xanl,
+    ayar_maps=:xmap,
+    ayar_zopim=:xzop
+     
+    WHERE ayar_id=1
+    
+    ");
+    
+    $update= $ayarkaydet->execute(array(
+    
+    "xanl"=> $_POST["ayar_analystic"],
+    "xmap"=> $_POST["ayar_maps"],
+    "xzop"=> $_POST["ayar_zopim"],
+    
+    
+    ));
+    
+    if($update){
+        header("Location:../production/api-ayar.php?durum=ok");
+    }
+    else{
+        header("Location:../production/api-ayar.php?durum=no");
+    }
+    
+    
+    }
+
+
+
 
 
 

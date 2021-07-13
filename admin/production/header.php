@@ -93,7 +93,7 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                     <ul class="nav child_menu">
                       <li><a href="genel-ayar.php">Genel Ayarlar</a></li>
                       <li><a href="iletisim-ayar.php">İletişim Ayarlar</a></li>
-                      
+                      <li><a href="api-ayar.php">API Ayarlar</a></li>
                     </ul>
                   </li>
 
