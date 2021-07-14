@@ -214,10 +214,13 @@ if(isset($_POST["apiayarkaydet"])){
         
       #    KULLANICI UPDATE İSLEMLERİ
 
+
     if(isset($_POST["kullanici-düzenle"])){
+   
+    $id=$_POST['kullanici_id'];
+   
     
-    
-        $kulduz= $db -> prepare("UPDATE kullanici SET 
+    $kulduz= $db -> prepare("UPDATE kullanici SET 
         
         kullanici_ad=:xad,
         kullanici_mail=:xmal,
@@ -225,32 +228,54 @@ if(isset($_POST["apiayarkaydet"])){
         kullanici_durum=:xdur
         
          
-        WHERE kullanici_id={$_POST['kullanici_id']}
-        
-        ");
+        WHERE kullanici_id= " . $id);
         
         $updatekul= $kulduz->execute(array(
         
         "xad"=> $_POST["kullanici_ad"],
-        "xad"=> $_POST["kullanici_mail"],
-        "xmal"=> $_POST["kullanici_yetki"],
-        "xyet"=> $_POST["kullanici_durum"]
-        
-        
-        
-        
-        ));
+        "xmal"=> $_POST["kullanici_mail"],
+        "xyet"=> $_POST["kullanici_yetki"],
+        "xdur"=> $_POST["kullanici_durum"]
+  ));
         
         if($updatekul){
-            header("Location:../production/kullanici.php?durum=ok");
+
+
+           header("Location:../production/kullanici.php?durum=ok");
          
         }
         else{
           header("Location:../production/kullanici.php?durum=no");
-         
+      
         }
         
         
+        }
+
+#               KULLANICI SİLME İŞLEMİ
+
+        if($_GET["kullanicisil"]=="ok"){
+
+     $sil=$db->prepare("DELETE from kullanici where kullanici_id=:xid");
+
+     $kont=$sil->execute(array(
+         "xid"=>$_GET["kul_id"]
+     
+        ));
+
+
+
+        if($kont){
+
+
+            header("Location:../production/kullanici.php?durum=ok");
+          
+         }
+         else{
+           header("Location:../production/kullanici.php?durum=no");
+       
+         }
+
         }
     
     
