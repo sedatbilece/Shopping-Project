@@ -304,6 +304,23 @@ input[type=text]:placeholder {
       <a class="underlineHover" href="#">Forgot Password?</a>
     </div>
 
+
+   <?php    
+   
+   if(isset($_GET["durum"])){
+     if($_GET["durum"]=="no"){ ?>
+
+    <script>
+      alert("kullanıcı bulunamadı");
+    </script>
+    
+<?php
+     }
+   }
+   ?>
+   
+
+
   </div>
 
 </div>

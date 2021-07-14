@@ -1,13 +1,44 @@
 <?php
-
+ob_start();
+session_start();
 include "baglan.php";
+
+
 
 # ADMİN LOGİN İSLEMİ
 
 if(isset($_POST["admingiris"])){
 
-echo $_POST["kullanici_mail"];
-echo $_POST["kullanici_password"];
+$mail = $_POST["kullanici_mail"];
+$pass =  md5($_POST["kullanici_password"]);
+
+
+
+$kullanicisor=$db->prepare("SELECT * FROM kullanici where  kullanici_mail=:xmail and kullanici_password=:xpass and kullanici_yetki=:xyet");
+
+$kullanicisor->execute(array(
+
+  "xmail"=>$mail,
+  "xpass"=>$pass,
+  "xyet"=>5
+));
+# sorgudan geriye satır dönmüşmü diye bakılır
+$say= $kullanicisor->rowCount();
+
+
+if($say==1){
+
+$_SESSION["kullanici_mail"]=$mail;
+
+header("Location:../production/index.php");
+    exit;
+
+}
+else{
+    header("Location:../production/login.php?durum=no");
+    exit;
+}
+
 
 
 

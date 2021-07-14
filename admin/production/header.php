@@ -1,6 +1,10 @@
 
 
 <?php
+# bu ikisi olmadan session kullanamıyoruz
+ob_start();
+session_start();
+#
 include "../functions/baglan.php";
 
 $ayarsor=$db->prepare("SELECT * FROM ayar where ayar_id=:xid");
@@ -15,6 +19,30 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
 
 
 
+$kullanicisor=$db->prepare("SELECT * FROM kullanici where kullanici_mail=:xmail");
+
+$kullanicisor->execute(array(
+
+  "xmail"=>$_SESSION["kullanici_mail"]
+));
+
+$say= $kullanicisor->rowCount();# eşleşme var ise say 1 olur yoksa 0
+
+$kulcek= $kullanicisor->fetch(PDO::FETCH_ASSOC);
+
+
+if($say==0){# erişim engelleme
+  header("Location:../production/login.php?durum=izinsiz");
+  exit;
+}
+
+
+
+//1.yöntem
+/*
+if(! isset($_SESSION["kullanici_mail"])){
+}
+*/
 
 ?>
 
@@ -72,8 +100,16 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                 <img src="images/img.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
+                <span>Hoşgeldin,</span>
+                <h2>
+<?php 
+
+
+echo $kulcek["kullanici_ad"];
+
+
+?>
+                </h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -139,7 +175,14 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="images/img.jpg" alt="">John Doe
+                    <img src="images/img.jpg" alt="">
+                    <?php 
+
+
+echo $kulcek["kullanici_ad"];
+
+
+?>
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -151,9 +194,23 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                       </a>
                     </li>
                     <li><a href="javascript:;">Help</a></li>
+                    
                     <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                   </ul>
                 </li>
+
+
+
+<li>
+
+<a href="logout.php">Güvenli Çıkış</a>
+
+
+</li>
+
+
+
+
 
                 <li role="presentation" class="dropdown">
                   <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
@@ -177,7 +234,7 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
                       <a>
                         <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>John Smith</span>
+                          <span>asd</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
