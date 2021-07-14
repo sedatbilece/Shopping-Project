@@ -2,6 +2,26 @@
 
 include "baglan.php";
 
+# ADMİN LOGİN İSLEMİ
+
+if(isset($_POST["admingiris"])){
+
+echo $_POST["kullanici_mail"];
+echo $_POST["kullanici_password"];
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
 
 
 

@@ -104,6 +104,8 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
 										<form class="form-horizontal" role="form">
 											<div class="form-group">
 												<label for="search" class="col-sm-2 control-label">Search</label>
+
+												<a href="/admin/index.php"> admin</a>
 												<div class="col-sm-10">
 													<input type="text" class="form-control" id="search">
 												</div>

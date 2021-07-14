@@ -22,6 +22,12 @@ $hakcek= $ayarsor2->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
+<head>
+
+<script src="https://cdn.ckeditor.com/ckeditor5/29.0.0/classic/ckeditor.js"></script>
+
+</head>
+
         <!-- page content -->
         <div class="right_col" role="main">
           <div class="">
@@ -85,12 +91,24 @@ $hakcek= $ayarsor2->fetch(PDO::FETCH_ASSOC);
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">İçerik 
                         </label>
 
+
+                        
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input value="<?php  echo $hakcek["hakkimizda_icerik"]  ?>"   
-                           name="hakkimizda_icerik" type="textarea" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+
+                        <textarea  style="height:200px;" class="ckeditor" name="icerikedit" id="" cols="30" rows="40"  value="<?php  echo $hakcek["hakkimizda_icerik"]  ?>" > </textarea> 
+
+
                         </div>
 
                       </div>
+
+                      <script>
+    ClassicEditor
+        .create( document.querySelector( '.ckeditor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
 
 
                       <div class="form-group">
@@ -152,10 +170,6 @@ $hakcek= $ayarsor2->fetch(PDO::FETCH_ASSOC);
             </div>
 
 
-
-
-
-        
 
             
 
