@@ -210,6 +210,48 @@ if(isset($_POST["apiayarkaydet"])){
         
         
         }
+
+        
+      #    KULLANICI UPDATE İSLEMLERİ
+
+    if(isset($_POST["kullanici-düzenle"])){
+    
+    
+        $kulduz= $db -> prepare("UPDATE kullanici SET 
+        
+        kullanici_ad=:xad,
+        kullanici_mail=:xmal,
+        kullanici_yetki=:xyet,
+        kullanici_durum=:xdur
+        
+         
+        WHERE kullanici_id={$_POST['kullanici_id']}
+        
+        ");
+        
+        $updatekul= $kulduz->execute(array(
+        
+        "xad"=> $_POST["kullanici_ad"],
+        "xad"=> $_POST["kullanici_mail"],
+        "xmal"=> $_POST["kullanici_yetki"],
+        "xyet"=> $_POST["kullanici_durum"]
+        
+        
+        
+        
+        ));
+        
+        if($updatekul){
+            header("Location:../production/kullanici.php?durum=ok");
+         
+        }
+        else{
+          header("Location:../production/kullanici.php?durum=no");
+         
+        }
+        
+        
+        }
     
     
 

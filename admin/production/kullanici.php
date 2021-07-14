@@ -24,7 +24,10 @@ $kullanicisor->execute();
 
               
 
+
+
          
+
 
 <table class="table table-bordered">
   <thead class="thead-light">
@@ -56,7 +59,7 @@ $kullanicisor->execute();
       <td><?php echo $kulcek["kullanici_yetki"];?> </td>
       <td><?php echo $kulcek["kullanici_durum"];?> </td>
      
-      <td><Button class="btn btn-primary btn-xs">Düzenle</Button></td>
+      <td><a href="kullanici-düzenle.php?id=<?php echo $kulcek["kullanici_id"];?>"><Button class="btn btn-primary btn-xs">Düzenle</Button></a></td>
       <td><Button class="btn btn-danger btn-xs">Sil</Button></td>
       
     </tr>
