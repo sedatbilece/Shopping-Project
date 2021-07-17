@@ -91,7 +91,7 @@ $ayarcek= $ayarsor->fetch(PDO::FETCH_ASSOC);
 										<p>
 											New User? By creating an account you be able to shop faster, be up to date on an order's status...
 										</p>
-										<button class="btn btn-default btn-yellow">Register Now</button>
+										<a href="register.php"><button   class="btn btn-default btn-yellow">Kayıt Ol </button></a>
 									</div>
 								</div>
 							</div>
