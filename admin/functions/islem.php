@@ -278,7 +278,47 @@ if(isset($_POST["apiayarkaydet"])){
 
         }
     
-    
+    #               KULLANICI KAYDETME İŞLEMİ
+
+    if(isset($_POST["kullanicikaydet"])){
+
+        #  scriptlerden  arındırmak için special chars kullanılabilir
+        $kad=  htmlspecialchars(   $_POST["kullanici_ad"]  );
+        $kmail=  htmlspecialchars(  $_POST["kullanici_mail"] );
+        $ks1= htmlspecialchars(   $_POST["kullanici_sifre"] );
+        $ks2= htmlspecialchars(   $_POST["kullanici_sifre2"] );
+
+
+        if($ks1==$ks2){// şifreler aynı mı
+
+            if($ks1>=6){//şifre 6 karakterden fazla mı
+
+
+
+# 1 mail varmı diye bak kullanıcılarda
+
+# 2 yoksa sifreyi md5 yap varsa geri dön
+
+# 3 kayıt işlemini tamamla
+
+
+
+
+            }
+            else{
+                header("Location:../../register.php?durum=kisasifre");
+
+            }
+
+
+        }
+        else{
+        
+         header("Location:../../register.php?durum=farklisifre");
+        }
+
+
+    }
 
 
 
